@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Navbar</title>
-	<link rel="stylesheet" type="text/css" href="navbar.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="navbar.css">
 </head>
 <body>
-<div class="container">
-    <nav class="navbar">
-      <a class="home" href="#">Home</a>
-      <a class="about" href="#">About</a>
-      <a class="news" href="#">News</a>
-      <a class="contact" href="#">Contact</a>
-    </nav>
+<div>
+  <ul class="sidebar">
+      <li class="sidebar-brand"><button class="tablinks">Dashboard</button></li>
+      <li><button class="tablinks">Todo list</button></li>
+      <li><button class="tablinks">User</button></li>
+      <li><button class="tablinks">Dummy</button></li>
+      <li><button class="tablinks">Logout</button></li>
+      </ul>
+</div>
+
+<div class="tabcontent">
+ <div class="container">
+ <div id="todo">
+  <label for="itemsearch">Search Box</label>
+  <input type="text" id="itemsearch" name="itemsearch" placeholder="Enter item to Search">
+  <button class="button">Search</button>
+  <br>
+  <ol class="todoitem">
+  <li>Head north on N Halsted St</li>
+  <li>Turn right on W Diversey Pkwy</li>
+  <li>Turn left on N Orchard St</li>
+</ol>
+
   </div>
+ </div>
+</div>
 </body>
-</html>
+</html> 

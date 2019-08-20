@@ -6,40 +6,98 @@ a {
   text-decoration: none;
 }
 body {
-  background-color: #131313;
-  color: white;
+  background-color: #ffffff;
+  color: black;
   margin: 0 auto;
-}
-.container {
-  width: 90%;
-  margin: auto;
-  margin-top:15px;
+  font-family: Helvetica,Arial,Verdana;
+  font-size:14px;
 }
 
-.navbar {
-  width: 100%;
-  border-radius: 10px;
-}
-.navbar a {
-  float: left;
-  width: 25%;
-  background: #343434;
-}
-.navbar>a:first-child {
-  border-bottom-left-radius: 3px
+.sidebar {
+  background-color:#333;
+  width:20%;
+  height:100%;
+  top:0;
+  bottom:0;
+  left:0;
+  text-align:left;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.navbar>a:last-child {
-  border-bottom-right-radius: 3px
+.sidebar .tablinks {
+
+ display: block;
+ background-color: inherit;
+ color: #ffffff;
+ padding: 18px 14px;
+ width: 100%;
+ border: none;
+ outline: none;
+ text-align: left;
+ cursor: pointer;
+ font-size: 17px;
 }
-nav a {
-  color: inherit;
+
+.sidebar li {
+  text-indent: 20px;
+  line-height: 40px;
+}
+
+.sidebar li:hover {
+  background-color:#777;
+  cursor:pointer;
+  text-indent: 30px;
+}
+
+.sidebar > .sidebar-brand {
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px;
+  margin-top: 20px;
+}
+.tabcontent {
+  float: right;
+  padding: 0px 12px;
+  width: 75%;
+  border-left: none;
+  height: 100%;
+  margin-top: 7%
+  
+}
+#todo{
+  width: 40%;
+}
+input[type=text] {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+input[type=text]:focus {
+  border: 2px solid #0000ff;
+  border-radius: 4px;
+}
+label{
+  display: block;
+}
+.todoitem {
+  text-indent: 30px;
+}
+.button{
+  border:1px solid transparent;
+  background-color: #333;
   display: inline-block;
-  padding: 17px 25px;
-  text-align: center;
-}
+  vertical-align: middle;
+  outline: 0;
+  cursor: pointer;
+  padding :12px;
+  color: #ffffff;
+  font-weight: bold;
 
-a:hover,
-a:active {
-  background: #338af5;
 }
