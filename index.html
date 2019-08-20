@@ -20,26 +20,18 @@
 		<div class="container">
 			<div id="todo">
 				<div class="autocomplete">
-					<input id="myInput" type="text" name="myCountry" placeholder="Enter Item to Search" onfocus="return showSuggestion();" onblur="return hideSuggestion()" >
-					<input type="button" class="button" value="Add" name="Add">
-					<input type="button" class="button" value="Search" name="Add">
-					<div id="myInputautocomplete-list" class="autocomplete-items" style="width:235px; display: none" >
+					<input id="myInput" type="text" name="myCountry" placeholder="Enter Item to Search" onkeypress="return showSuggestion();" onblur="return hideSuggestion()" >
+					<input type="button" class="button" value="Add" name="Add" onclick="return AddItem()">
+					<input type="button" class="button" value="Search" name="search">
+					<div id="myInputautocomplete-list" class="autocomplete-items" onfocus="return showSuggestion();" style="width:235px; display: none" >
 					</div>
 				</div>
 				<br>
 				<br>
-				<table style="width:100%">
+				<table  id="myTable" style="width:100%">
 			  <tr>
-			    <th>Item</th>
-			    <th>Actions</th> 
-			  </tr>
-			  <tr>
-			    <td>Jill</td>
-			    <td>Smith</td> 
-			  </tr>
-			  <tr>
-			    <td>Eve</td>
-			    <td>Jackson</td> 
+			    <th align="left">Item</th>
+			    <th align="left">Actions</th> 
 			  </tr>
 			</table>
 			</div>
@@ -47,15 +39,21 @@
 	</div>
 	<script>
 		
-		var countries = ["Afghanistan","Albania","Algeria","Belize","Benin","Bermuda","Guyana","Hong Kong","Hungary","Iceland","India"];
-
+		var items = ["Afghanistan","Albania","Algeria","Belize","Benin","Bermuda","Guyana","Hong Kong","Hungary","Iceland","India"];
+ 		var counter =0;
+		
 		function showSuggestion(){
-			let items = countries.filter(check);
+			document.getElementById('myInputautocomplete-list').innerHTML="";
+    		let txt = document.getElementById("myInput").value;
 			for(let i=0;i<items.length;i++){
-				let item = document.createElement("div"); 
+				if(items[i].startsWith(txt))
+			      {
+			        let item = document.createElement("div"); 
 				item.innerHTML=items[i];
 				item.onmouseover = function() {mouseOver( this)};
 				document.getElementById("myInputautocomplete-list").appendChild(item);
+			    }
+				
 			}
 			document.getElementById("myInputautocomplete-list").style.display="block";
 		}
@@ -67,13 +65,19 @@
 		function mouseOver(element){
 			document.getElementById("myInput").value= element.innerHTML;
 		}
-		function check(ele) {
-		if(document.getElementById("myInput").value!="")
-		  return ele.startsWith(document.getElementById("myInput").value);
-		else
-			return true;
+		
+		function AddItem(){
+			let txt = document.getElementById("myInput").value;
+			if(txt!=''){
+				  var table = document.getElementById("myTable");
+				  var row = table.insertRow(counter+1);
+				  var cell1 = row.insertCell(0);
+				  var cell2 = row.insertCell(1);
+				  cell1.innerHTML = txt;
+				  cell2.innerHTML = "<a href='#'>Edit</a> <a href='#'>Delete</a>";
+				counter++;
+			}
 		}
-
 	</script>
 </body>
 </html> 
