@@ -20,10 +20,11 @@
 		<div class="container">
 			<div id="todo">
 				<div class="autocomplete">
-					<input id="myInput" type="text" name="myCountry" placeholder="Enter Item to Search" onkeypress="return showSuggestion();" onblur="return hideSuggestion()" >
+					<input id="myInput" type="text" name="myCountry" placeholder="Enter Item to Search" onkeyup="filterFunction()" onblur="hidePrompt()">
 					<input type="button" class="button" value="Add" name="Add" onclick="return AddItem()">
 					<input type="button" class="button" value="Search" name="search">
-					<div id="myInputautocomplete-list" class="autocomplete-items" onfocus="return showSuggestion();" style="width:235px; display: none" >
+					<div id="myInputautocomplete-list" class="autocomplete-items" style="width:240px; display: block" >
+						
 					</div>
 				</div>
 				<br>
@@ -37,47 +38,6 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		
-		var items = ["Afghanistan","Albania","Algeria","Belize","Benin","Bermuda","Guyana","Hong Kong","Hungary","Iceland","India"];
- 		var counter =0;
-		
-		function showSuggestion(){
-			document.getElementById('myInputautocomplete-list').innerHTML="";
-    		let txt = document.getElementById("myInput").value;
-			for(let i=0;i<items.length;i++){
-				if(items[i].startsWith(txt))
-			      {
-			        let item = document.createElement("div"); 
-				item.innerHTML=items[i];
-				item.onmouseover = function() {mouseOver( this)};
-				document.getElementById("myInputautocomplete-list").appendChild(item);
-			    }
-				
-			}
-			document.getElementById("myInputautocomplete-list").style.display="block";
-		}
-		function hideSuggestion(){
-			document.getElementById("myInputautocomplete-list").style.display="none";
-			document.getElementById("myInputautocomplete-list").innerHTML = '';
-
-		}
-		function mouseOver(element){
-			document.getElementById("myInput").value= element.innerHTML;
-		}
-		
-		function AddItem(){
-			let txt = document.getElementById("myInput").value;
-			if(txt!=''){
-				  var table = document.getElementById("myTable");
-				  var row = table.insertRow(counter+1);
-				  var cell1 = row.insertCell(0);
-				  var cell2 = row.insertCell(1);
-				  cell1.innerHTML = txt;
-				  cell2.innerHTML = "<a href='#'>Edit</a> <a href='#'>Delete</a>";
-				counter++;
-			}
-		}
-	</script>
+	<script src="common.js"></script>
 </body>
 </html> 
