@@ -1,4 +1,5 @@
-var items = ["Afghanistan", "Albania", "Algeria", "Belize", "Benin", "Bermuda", "Guyana", "Hong Kong", "Hungary", "Iceland", "India"];
+var items = ["Afghanistan", "Albania", "Algeria", "Belize", "Benin",
+ "Bermuda", "Guyana", "Hong Kong", "Hungary", "Iceland", "India"];
 
 function insertNode()
 {
@@ -8,8 +9,16 @@ function insertNode()
     item.innerHTML = items[i];
     item.className = "itemlist";
     item.style.display = "none";
+    item.onmouseover = function(){
+    	populateInput(this);
+    }
     document.getElementById("myInputautocomplete-list").appendChild(item);
   }
+}
+
+function populateInput(element)
+{
+	document.getElementById("myInput").value = element.innerHTML;
 }
 
 function hidePrompt()
@@ -58,6 +67,7 @@ function AddItem()
     var cell2 = row.insertCell(1);
     cell1.innerHTML = txt;
     cell2.innerHTML = "<a href='#'>Edit</a> <a href='#'>Delete</a>";
+    document.getElementById("myInput").value = '';
     counter++;
   }
 }
