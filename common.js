@@ -41,7 +41,7 @@ function filterFunction()
   for (i = 0; i < a.length; i++)
   {
     txtValue = a[i].textContent || a[i].innerText;
-    if (!txtValue.startsWith(filter))
+    if (!txtValue.toUpperCase().startsWith(filter))
     {
       a[i].style.display = "none";
     }
@@ -54,21 +54,25 @@ function filterFunction()
 
 
 // display list on table row
-var counter = 0;
-
 function AddItem()
 {
   let txt = document.getElementById("myInput").value;
   if (txt != '')
   {
     var table = document.getElementById("myTable");
-    var row = table.insertRow(counter + 1);
+    var rowcount = table.rows.length;
+    var row = table.insertRow(rowcount);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     cell1.innerHTML = txt;
-    cell2.innerHTML = "<a href='#'>Edit</a> <a href='#'>Delete</a>";
+    cell2.innerHTML = `<input type='button' class='button' value='Edit' name='Edit'><input type='button' data-row=${rowcount} class='button' value='Delete' name='delete' onclick='return deleteRow(this)'>`;
     document.getElementById("myInput").value = '';
-    counter++;
   }
 }
+function deleteRow(element){
+	let row = element.getAttribute("data-row");
+	console.log(row);
+	document.getElementById("myTable").deleteRow(row);
+}
+
 insertNode();

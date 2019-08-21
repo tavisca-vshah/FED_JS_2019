@@ -20,9 +20,9 @@
 		<div class="container">
 			<div id="todo">
 				<div class="autocomplete">
-					<input id="myInput" type="text" name="myCountry" placeholder="Enter Item to Search" onkeyup="filterFunction()" onblur="hidePrompt()">
+					<input id="myInput" type="text" name="myCountry" placeholder="Enter Item to Search" onkeyup="filterFunction()" onfocus="filterFunction()" onblur="hidePrompt()">
 					<input type="button" class="button" value="Add" name="Add" onclick="return AddItem()">
-					<input type="button" class="button" value="Search" name="search">
+					<input type="button" class="button" value="Search" name="search" >
 					<div id="myInputautocomplete-list" class="autocomplete-items" style="width:240px; display: block" >
 						
 					</div>
@@ -30,9 +30,9 @@
 				<br>
 				<br>
 				<table  id="myTable" style="width:100%">
-			  <tr>
+			  <tr style="margin-bottom: 10px;">
 			    <th align="left">Item</th>
-			    <th align="left">Actions</th> 
+			    <th align="center">Actions</th> 
 			  </tr>
 			</table>
 			</div>
