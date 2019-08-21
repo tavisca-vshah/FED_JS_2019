@@ -1,8 +1,8 @@
-var items = ["Afghanistan", "Albania", "Algeria", "Belize", "Benin",
- "Bermuda", "Guyana", "Hong Kong", "Hungary", "Iceland", "India"];
+var items = [];
 
 function insertNode()
 {
+	document.getElementById("myInputautocomplete-list").innerHTML="";
   for (let i = 0; i < items.length; i++)
   {
     let item = document.createElement("div");
@@ -33,7 +33,8 @@ function hidePrompt()
 
 function filterFunction()
 {
-  let input, filter, ul, li, a, i;
+	insertNode();
+  let input, filter, a, i;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   console.log(filter);
@@ -67,12 +68,11 @@ function AddItem()
     cell1.innerHTML = txt;
     cell2.innerHTML = `<input type='button' class='button' value='Edit' name='Edit'><input type='button' data-row=${rowcount} class='button' value='Delete' name='delete' onclick='return deleteRow(this)'>`;
     document.getElementById("myInput").value = '';
+    items.push(txt);
   }
 }
 function deleteRow(element){
 	let row = element.getAttribute("data-row");
-	console.log(row);
 	document.getElementById("myTable").deleteRow(row);
 }
 
-insertNode();
