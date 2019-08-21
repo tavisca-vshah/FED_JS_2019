@@ -22,7 +22,7 @@
 				<div class="autocomplete">
 					<input id="myInput" type="text" name="myCountry" placeholder="Enter Item to Search" onkeyup="filterFunction()" onfocus="filterFunction()" onblur="hidePrompt()">
 					<input type="button" class="button" value="Add" name="Add" onclick="return AddItem()">
-					<input type="button" class="button" value="Search" name="search" >
+					<input type="button" class="button" value="Search" name="search"  data-suggest="open" onclick="return showSuggestionToggle(this)" >
 					<div id="myInputautocomplete-list" class="autocomplete-items" style="width:240px; display: block" >
 						
 					</div>
