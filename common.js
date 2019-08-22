@@ -1,3 +1,4 @@
+"use strict";
 var items = [];
 
 function insertNode()
@@ -24,7 +25,7 @@ function populateInput(element)
 function hidePrompt()
 {
 	let a = document.getElementsByClassName("itemlist");
-	for (i = 0; i < a.length; i++)
+	for (let i = 0; i < a.length; i++)
 	{
 		a[i].style.display = "none";
 
@@ -34,7 +35,7 @@ function hidePrompt()
 function filterFunction()
 {
 	insertNode();
-	let input, filter, a, i;
+	let input, filter, a, i,txtValue;
 	input = document.getElementById("myInput");
 	filter = input.value.toUpperCase();
 	a = document.getElementsByClassName("itemlist");
