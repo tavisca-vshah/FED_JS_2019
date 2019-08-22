@@ -59,15 +59,29 @@ function AddItem()
 	let txt = document.getElementById("myInput").value;
 	if (txt != '')
 	{
-		var table = document.getElementById("myTable");
-		var rowcount = table.rows.length;
-		var row = table.insertRow(rowcount);
-		var cell1 = row.insertCell(0);
-		var cell2 = row.insertCell(1);
+		let table = document.getElementById("myTable");
+		let rowcount = table.rows.length;
+		let row = table.insertRow(rowcount);
+		let cell1 = row.insertCell(0);
+		let cell2 = row.insertCell(1);
 		cell1.innerHTML = txt;
-		cell2.innerHTML = `<input type='button' class='button' value='Edit' name='Edit'><input type='button' data-row=${txt} class='button' value='Delete' name='delete' onclick='return deleteRow(this)'>`;
+		cell2.innerHTML = `<input type='button' class='button' value='Edit'  onclick='return editRow(this)' name='Edit'><input type='button' data-row=${txt} class='button' value='Delete' name='delete' onclick='return deleteRow(this)'>`;
 		document.getElementById("myInput").value = '';
 		items.push(txt);
+	}
+}
+function editRow(element){
+	let temp=element.parentNode.parentNode;
+	let currentItem = temp.firstChild.innerHTML;
+	temp.innerHTML=`<td><input type="text" placeholder="Update Item" ></td><input type='button' class='button' value='Update'  onclick='return updateItem(this,"${currentItem}")' name='Update'>`;	
+}
+function updateItem(element,currentItem){
+	let updateItem = element.previousSibling.firstChild.value;
+	if(!updateItem)
+		alert("update field cannot be null");
+	else{
+		items[items.indexOf(currentItem)] = updateItem;
+		element.parentNode.innerHTML = `<td>${updateItem}</td><td><input type='button' class='button' value='Edit'  onclick='return editRow(this)' name='Edit'><input type='button' data-row=${updateItem} class='button' value='Delete' name='delete' onclick='return deleteRow(this)'></td>`;	  
 	}
 }
 function deleteRow(element){
