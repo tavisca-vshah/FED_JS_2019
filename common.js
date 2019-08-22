@@ -57,7 +57,7 @@ function filterFunction()
 function AddItem()
 {
 	let txt = document.getElementById("myInput").value;
-	if (txt != '')
+	if (txt != '' && items.indexOf(txt) == -1)
 	{
 		let table = document.getElementById("myTable");
 		let rowcount = table.rows.length;
