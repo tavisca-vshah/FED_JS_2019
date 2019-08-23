@@ -3,7 +3,8 @@ var items = [];
 
 function insertNode()
 {
-	document.getElementById("myInputautocomplete-list").innerHTML="";
+	let temp = document.getElementById("myInputautocomplete-list")
+	temp.innerHTML="";
 	for (let i = 0; i < items.length; i++)
 	{
 		let item = document.createElement("div");
@@ -13,7 +14,7 @@ function insertNode()
 		item.onmouseover = function(){
 			populateInput(this);
 		}
-		document.getElementById("myInputautocomplete-list").appendChild(item);
+		temp.appendChild(item);
 	}
 }
 
@@ -74,7 +75,7 @@ function AddItem()
 function editRow(element){
 	let temp=element.parentNode.parentNode;
 	let currentItem = temp.firstChild.innerHTML;
-	temp.innerHTML=`<td><input type="text" placeholder="Update Item" ></td><input type='button' class='button' value='Update'  onclick='return updateItem(this,"${currentItem}")' name='Update'>`;	
+	temp.innerHTML=`<td><input type="text" placeholder="Update Item"  value = ${currentItem}></td><input type='button' class='button' value='Update'  onclick='return updateItem(this,"${currentItem}")' name='Update'>`;	
 }
 function updateItem(element,currentItem){
 	let updateItem = element.previousSibling.firstChild.value;
@@ -131,4 +132,15 @@ function showSuggestionToggle(element){
 		element.setAttribute("data-suggest", "open");
 		searchItemClose();
 	}
+}
+function showNavContent(element){
+	let id=element.getAttribute("id");
+	let navcontent = document.getElementsByClassName("tablinks");
+	for(let i=1;i<navcontent.length;i++)
+	{
+		let tempid = navcontent[i].getAttribute("id");
+		document.getElementById(tempid+"-content").style.display = "none";
+	}
+	document.getElementById(id+"-content").style.display = "block";
+
 }

@@ -9,18 +9,18 @@
 	<div>
 		<ul class="sidebar">
 			<li class="sidebar-brand"><button class="tablinks">Dashboard</button></li>
-			<li><button class="tablinks">Todo list</button></li>
-			<li><button class="tablinks">User</button></li>
-			<li><button class="tablinks">Department</button></li>
-			<li><button class="tablinks">Logout</button></li>
+			<li><button class="tablinks" id="todo" onclick="showNavContent(this)">Todo list</button></li>
+			<li><button class="tablinks" id ="user" onclick="showNavContent(this)">User</button></li>
+			<li><button class="tablinks" id="department" onclick="showNavContent(this)">Department</button></li>
+			<li><button class="tablinks" id="logout" onclick="showNavContent(this)">Logout</button></li>
 		</ul>
 	</div>
 
 	<div class="tabcontent">
 		<div class="container">
-			<div id="todo">
+			<div id="todo-content">
 				<div class="autocomplete">
-					<input id="myInput" type="text" name="myCountry" placeholder="Enter Item to Search" onkeyup="filterFunction()" onfocus="filterFunction()" onblur="hidePrompt()">
+					<input id="myInput" type="text" name="myCountry" placeholder="Enter Item to Search" onkeyup="filterFunction()" onblur="hidePrompt()">
 					<input type="button" class="button" value="Add" name="Add" onclick="return AddItem()">
 					<input type="button" class="button" value="Search" name="search"  data-suggest="open" onclick="return showSuggestionToggle(this)" >
 					<div id="myInputautocomplete-list" class="autocomplete-items" style="width:240px; display: block" >
@@ -36,6 +36,16 @@
 			  </tr>
 			</table>
 			</div>
+			<div id="user-content" style="display: none">
+				<h2>Welcome User</h2>
+			</div>
+			<div id="department-content" style ="display: none">
+				<h2>Welcome to Department</h2>
+			</div>
+			<div id="logout-content" style="display: none">
+				<h2>logout User</h2>
+			</div>
+
 		</div>
 	</div>
 	<script src="common.js"></script>
