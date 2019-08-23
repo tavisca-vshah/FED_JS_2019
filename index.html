@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="navbar.css">
+</head>
+<body>
+	<header>H1</header>
+	<div>
+		<ul class="sidebar">
+			<li class="sidebar-brand"><button class="tablinks">Dashboard</button></li>
+			<li><button class="tablinks" id="todo" onclick="showNavContent(this)">Todo list</button></li>
+			<li><button class="tablinks" id ="user" onclick="showNavContent(this)">User</button></li>
+			<li><button class="tablinks" id="department" onclick="showNavContent(this)">Department</button></li>
+			<li><button class="tablinks" id="logout" onclick="showNavContent(this)">Logout</button></li>
+		</ul>
+	</div>
+
+	<div class="tabcontent">
+		<div class="container">
+			<div id="todo-content">
+				<div class="autocomplete">
+					<input id="myInput" type="text" name="myCountry" placeholder="Enter Item to Search" onkeyup="filterFunction()" onblur="hidePrompt()">
+					<input type="button" class="button" value="Add" name="Add" onclick="return AddItem()">
+					<input type="button" class="button" value="Search" name="search"  data-suggest="open" onclick="return showSuggestionToggle(this)" >
+					<div id="myInputautocomplete-list" class="autocomplete-items" style="width:240px; display: block" >
+						
+					</div>
+				</div>
+				<br>
+				<br>
+				<table  id="myTable" style="width:100%">
+			  <tr style="margin-bottom: 10px;">
+			    <th align="left">Item</th>
+			    <th align="center">Actions</th> 
+			  </tr>
+			</table>
+			</div>
+			<div id="user-content" style="display: none">
+				<h2>Welcome User</h2>
+			</div>
+			<div id="department-content" style ="display: none">
+				<h2>Welcome to Department</h2>
+			</div>
+			<div id="logout-content" style="display: none">
+				<h2>logout User</h2>
+			</div>
+
+		</div>
+	</div>
+	<script src="common.js"></script>
+</body>
+</html> 
